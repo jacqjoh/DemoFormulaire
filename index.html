@@ -2,9 +2,110 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Important -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaires HTML</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
+<!-- get je cherche/reçois quelque chose et post j'envoie des informations -->
+    <form action="https://www.kode.ch/getpost/" method="post">
+        <h1>Formulaire d'inscription</h1>
+        <ul>
+            <li>
+                <label for="nom">Nom de famille <span>*</span></label>
+                <input autofocus required type="text" id="nom" name="nom">
+            </li>
+            <li>
+                <!-- tabindex quand on appuie sur tab sa passe dans les champs selon l'ordre -->
+                <label for="prenom">Prénom <span>*</span></label>
+                <input required type="text" id="prenom" name="prenom">
+            </li>
+            <li>
+                <!-- accesskey permet de mettre un raccourci sur les champ pour y acceder avec alt+maj+lettrechoisi -->
+                <!-- placeholder met une indication dans le champ et s'efface quand on écrit -->
+                <label for="email">E-Mail</label>
+                <input accesskey="e" placeholder="nnnn.ppp@divtec.ch" type="email" id="email" name="email">
+            </li>
+            <li>
+                <!-- readonly verouille le champ et empeche le changement -->
+                <!-- disabled désactive le champ -->
+                <label for="message">Votre message</label>
+                <textarea name="message" id="message"
+                          cols="50" rows="10"></textarea>
+            </li>
+            <li>
+                <input type="checkbox" name="copie" id="copie">
+                <label for="copie">Je veux recevoir une copie du message</label>
+            </li>
+            <li>
+                <!-- un groupe de bouton radio est toujours dans un fieldset -->
+                <fieldset>
+                    <legend>Sélectionnez votre pays d'origine <span>*</span></legend>
+                    <div>
+                        <!-- checked permet de sélectionner un bouton par défaut -->
+                        <input required
+                               type="radio"
+                               name="pays"
+                               id="pays-fr"
+                               value="FR"
+                        >
+                        <label for="pays-fr">France</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="pays" id="pays-it" value="IT">
+                        <label for="pays-it">Italie</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="pays" id="pays-ch" value="CH">
+                        <label for="pays-ch">Suisse</label>
+                    </div>
+                </fieldset>
+            </li>
+            <li>
+                <label for="destination">Sélectionner votre déstination favorite <span>*</span></label>
+                <select required name="destination" id="destination">
+                    <!-- la première option d'une liste déroulante doit être une explication et n'a pas de valeur -->
+                    <option value="">-- Sélectionnez une destination --</option>
+                    <optgroup label="Europe">
+                        <option value="FR">France</option>
+                        <option value="IT">Italie</option>
+                        <option value="CH">Suisse</option>
+                    </optgroup>
+                    <optgroup label="Amérique">
+                        <option value="BR">Brésil</option>
+                        <option value="CA">Canada</option>
+                        <option value="US">Etats Unis</option>
+                    </optgroup>
+                </select>
+            </li>
+            <li>
+                <fieldset>
+                    <legend>Sélectionner vos genres musicaux préférés</legend>
+                    <div>
+                        <!-- les [] servent à renvoyer un array (le name doit être le même pour tous -->
+                        <input type="checkbox" name="music[]" id="music-pop" value="pop">
+                        <label for="music-pop">Pop</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="music[]" id="music-rock" value="rock">
+                        <label for="music-rock">Rock</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="music[]" id="music-punk" value="punk">
+                        <label for="music-punk">Punk</label>
+                    </div>
 
+                </fieldset>
+            </li>
+            <li>
+                <!-- <input type="submit"> -->
+                <!-- <button type="reset">reset</button> -->
+                <button type="submit">Envoyer</button>
+                <a href="#">Annuler</a>
+            </li>
+
+        </ul>
+    </form>
 </body>
 </html>
